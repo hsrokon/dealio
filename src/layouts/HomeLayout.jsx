@@ -1,3 +1,4 @@
+import BannerSlider from "../components/BannerSlider";
 import Navbar from "../components/Navbar";
 
 
@@ -7,6 +8,12 @@ const HomeLayout = () => {
             <header>
                 <Navbar></Navbar>
             </header>
+            <main>
+                <section className="mt-1">
+                    <BannerSlider></BannerSlider>
+                </section>
+            </main>
+            
         </div>
     );
 };

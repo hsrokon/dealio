@@ -5,11 +5,11 @@ import { Autoplay } from 'swiper/modules';
 
 const BannerSlider = () => {
   const banners = [
+    'https://i.ibb.co/PzYTCNNS/17057110-5375621.jpg',
     'https://i.ibb.co/Qv6PgQ4B/26258076-7155086.jpg',
     'https://i.ibb.co/hFQ10Qtp/m010t0655-d-sale-banner-03mar23.jpg',
     'https://i.ibb.co/nqnQzch4/20284953-6254366.jpg',
     'https://i.ibb.co/KxNrLWMP/6626525-3386820.jpg',
-    'https://i.ibb.co/PzYTCNNS/17057110-5375621.jpg',
     'https://i.ibb.co/WWmh5w7p/17057114-5375636.jpg',
     'https://i.ibb.co/TDC5zHLN/10016860-27331.jpg',
   ];

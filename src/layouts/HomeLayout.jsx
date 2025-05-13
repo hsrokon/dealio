@@ -1,19 +1,19 @@
-import BannerSlider from "../components/BannerSlider";
+import { Outlet } from "react-router-dom";
 import Navbar from "../components/Navbar";
 
 
 const HomeLayout = () => {
     return (
-        <div className="w-11/12 mx-auto mt-4 font-poppins">
+        <div className="w-11/12 min-h-screen mx-auto mt-4 font-poppins">
             <header>
                 <Navbar></Navbar>
-            </header>
+            </header> 
             <main>
-                <section className="mt-1">
-                    <BannerSlider></BannerSlider>
-                </section>
+                <Outlet></Outlet>
             </main>
-            
+            <footer>
+                
+            </footer>
         </div>
     );
 };

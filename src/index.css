@@ -1,0 +1,25 @@
+@import "tailwindcss";
+
+/* daisy */
+@plugin "daisyui" {
+  themes: false; /* Disable built-in themes */
+}
+@plugin "daisyui/theme" {
+  name: "mytheme";
+  default: true; /* Set as default theme */
+  color-scheme: light; /* Define color scheme */
+
+  --color-primary: #FF6B2C;
+  --color-secondary: #4FC3F7;
+  --color-accent: #FFC845;
+  --color-neutral: #3d4451;
+  --color-base-100: #F7F7F7; /* Your custom light gray background */
+  --color-base-content: #333333; /* Text color on base-100 */
+}
+
+/* custom font */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+@theme {
+  --font-poppins : "Poppins", sans-serif;
+}

@@ -1,12 +1,13 @@
 // CouponCard.jsx - Enhanced and integrated CouponCard with live coupon data
-
-import { useRef } from "react";
+import { useContext, useRef } from "react";
+import { FaRegHeart } from "react-icons/fa";
 import {
   motion,
   useMotionTemplate,
   useMotionValue,
   useSpring,
 } from "framer-motion";
+import { SavedContext } from "../../utils/saved";
 
 const categoryColors = {
   Electronics: { bg: "bg-secondary", text: "text-base-100" },
@@ -17,12 +18,12 @@ const categoryColors = {
   Default: { bg: "bg-gray-100", text: "text-gray-800" }
 };
 
-const ROTATION_RANGE = 200.5;
+const ROTATION_RANGE = 100.5;
 const HALF_ROTATION_RANGE = ROTATION_RANGE / 2;
 
 const CouponCard = ({ coupon }) => {
   const {
-    title, code, percent_off,
+    id, title, code, percent_off,
     duration, duration_in_months,
     times_redeemed, valid, category,
     store, expires_on
@@ -30,15 +31,17 @@ const CouponCard = ({ coupon }) => {
 
   const color = categoryColors[category] || categoryColors.Default;
 
+  const {saveToLS} = useContext(SavedContext);
+  const handleSaved = (ids, cat) => {
+    saveToLS(ids, cat)
+  }
+
   const ref = useRef(null);
   const x = useMotionValue(0);
   const y = useMotionValue(0);
-
   const xSpring = useSpring(x, { stiffness: 200, damping: 15 });
-const ySpring = useSpring(y, { stiffness: 200, damping: 15 });
-
-const transform = useMotionTemplate`rotateX(${xSpring}deg) rotateY(${ySpring}deg)`;
-
+  const ySpring = useSpring(y, { stiffness: 200, damping: 15 });
+  const transform = useMotionTemplate`rotateX(${xSpring}deg) rotateY(${ySpring}deg)`;
 
   const handleMouseMove = (e) => {
     if (!ref.current) return;
@@ -71,7 +74,10 @@ const transform = useMotionTemplate`rotateX(${xSpring}deg) rotateY(${ySpring}deg
         className="absolute inset-4 flex flex-col justify-between p-4 rounded-xl bg-white text-black shadow-inner"
       >
         <div>
-          <h3 className="text-lg font-bold mb-1">{title}</h3>
+          <h3 className="text-lg font-bold mb-1 h-14">{title}</h3>
+          <div  className="flex flex-col items-center">
+            <button onClick={()=> handleSaved(id, category)} className="text-2xl"><FaRegHeart /></button>
+          </div>
         </div>
         <div className="text-sm space-y-1 mt-1">
           {/* <p><strong>Code:</strong> {code}</p> */}

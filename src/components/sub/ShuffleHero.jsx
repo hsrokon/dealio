@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
 import { GoArrowUpRight } from "react-icons/go";
+import { Link } from "react-router-dom";
 
 const ShuffleHero = () => {
   return (
@@ -15,10 +16,13 @@ const ShuffleHero = () => {
         <p className="text-base md:text-lg text-slate-700 my-4 md:my-6">
           Discover and collect coupons to save on your favorite store
         </p>
-        <button className="bg-primary text-white font-medium py-2 px-6 rounded transition-all hover:bg-accent hover:text-base-content active:scale-95
-        flex items-center gap-2">
-          Browse coupons <GoArrowUpRight/>
-        </button>
+        <Link to={'/coupons'}>
+          <button className="bg-primary text-white font-medium py-2 px-6 rounded transition-all hover:bg-accent hover:text-base-content active:scale-95
+          flex items-center gap-2">
+            Browse coupons <GoArrowUpRight/>
+          </button>
+        </Link>
+        
       </div>
       <ShuffleGrid />
     </section>

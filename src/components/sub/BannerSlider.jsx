@@ -2,6 +2,7 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/autoplay';
 import { Autoplay } from 'swiper/modules';
+import { Link } from 'react-router-dom';
 
 const BannerSlider = () => {
   const banners = [
@@ -38,9 +39,11 @@ const BannerSlider = () => {
       <div className="absolute inset-0 bg-black/50 z-10 flex items-center justify-center">
         <div className="text-center text-white space-y-4">
           <h1 className="text-4xl font-bold">Get the Best Deals on Dealio</h1>
-          <button className="btn border-none px-6 py-6 text-[1rem] bg-white text-primary font-semibold rounded-md shadow hover:bg-gray-100 transition">
-            View More
-          </button>
+          <Link to={'/coupons'}>
+            <button className="btn border-none px-6 py-6 text-[1rem] bg-white text-primary font-semibold rounded-md shadow hover:bg-gray-100 transition">
+              View More
+            </button>
+          </Link>
         </div>
       </div>
     </div>

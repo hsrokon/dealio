@@ -3,6 +3,7 @@ import HomeLayout from "../layouts/HomeLayout";
 import ErrorPage from "../pages.jsx/ErrorPage";
 import Home from "../components/main/Home";
 import Coupons from "../components/main/Coupons";
+import Saved from "../components/main/Saved";
 
 const router = createBrowserRouter([
     {
@@ -17,6 +18,10 @@ const router = createBrowserRouter([
             {
                 path: '/coupons',
                 element: <Coupons></Coupons>
+            },
+            {
+                path: '/saved',
+                element:<Saved></Saved>
             }
         ]
     },

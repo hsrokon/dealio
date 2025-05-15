@@ -5,13 +5,17 @@ const Navbar = () => {
 
     const links = <>
     <NavLink 
-    className='btn px-2 border-none bg-none text-base-content text-[1rem]' to={'/'}>Home</NavLink>
+    className='btn px-2 border-none bg-none text-base-content text-[1rem]' 
+    to={'/'}>Home</NavLink>
     <NavLink 
-    className='btn px-2 border-none bg-none text-base-content text-[1rem]' to={'/coupons'}>Coupons</NavLink>
+    className='btn px-2 border-none bg-none text-base-content text-[1rem]' 
+    to={'/coupons'}>Coupons</NavLink>
     <NavLink 
-    className='btn px-2 border-none bg-none text-base-content text-[1rem]' to={'/saved'}>Saved</NavLink>
+    className='btn px-2 border-none bg-none text-base-content text-[1rem]' 
+    to={'/saved'}>Saved</NavLink>
     <NavLink 
-    className='btn px-2 border-none bg-none text-base-content text-[1rem]' to={'/dashboard'}>Dashboard</NavLink>
+    className='btn px-2 border-none bg-none text-base-content text-[1rem]' 
+    to={'/dashboard'}>Dashboard</NavLink>
     </>
 
     return (

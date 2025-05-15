@@ -25,3 +25,10 @@
 @theme {
   --font-poppins : "Poppins", sans-serif;
 }
+
+.active{
+  color: #f5f4f4;
+  border-bottom: 2px solid #F7F7F7;
+  padding-bottom: 4px;
+  transition: color 0.3s ease, border-bottom 0.2s ease, padding-bottom 0.3s ease;
+}

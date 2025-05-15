@@ -1,5 +1,6 @@
 import { useContext, useEffect, useState } from "react";
 import { SavedContext } from "../../utils/saved";
+import CouponCard from "../sub/CouponCard";
 
 
 const Saved = () => {
@@ -33,8 +34,46 @@ const Saved = () => {
 
     return (
         <div className="min-h-screen">
+                <h1 className="my-8 w-fit mx-auto pr-2 shadow-[3px_3px_0px_#FF6B2C] shadow-primary text-4xl font-semibold text-secondary">Never miss the favorite!</h1>
             <section>
-                <h3>Electronics</h3>
+                <h3 className="text-3xl font-semibold mt-12">Electronics 🔌📱💻</h3>
+                <div className="grid grid-cols-5">
+                    {
+                        electronicsSaved.map(c => <CouponCard key={c.id} coupon={c}></CouponCard>)
+                    }
+                </div>
+            </section>
+            <section>
+                <h3 className="text-3xl font-semibold mt-12">Food🍔🍕🍣</h3>
+                <div className="grid grid-cols-5">
+                    {
+                        foodSaved.map(c => <CouponCard key={c.id} coupon={c}></CouponCard>)
+                    }
+                </div>
+            </section>
+            <section>
+                <h3 className="text-3xl font-semibold mt-12">Fashion👗👜👟</h3>
+                <div className="grid grid-cols-5">
+                    {
+                        fashionSaved.map(c => <CouponCard key={c.id} coupon={c}></CouponCard>)
+                    }
+                </div>
+            </section>
+            <section>
+                <h3 className="text-3xl font-semibold mt-12">Beauty💄🧴💅</h3>
+                <div className="grid grid-cols-5">
+                    {
+                        beautySaved.map(c => <CouponCard key={c.id} coupon={c}></CouponCard>)
+                    }
+                </div>
+            </section>
+            <section>
+                <h3 className="text-3xl font-semibold mt-12">Travel✈️🌍🧳</h3>
+                <div className="grid grid-cols-5">
+                    {
+                        travelSaved.map(c => <CouponCard key={c.id} coupon={c}></CouponCard>)
+                    }
+                </div>
             </section>
             
         </div>

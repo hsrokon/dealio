@@ -1,4 +1,4 @@
-import { createContext, useState } from "react";
+import { createContext } from "react";
 
 export const SavedContext = createContext();
 
@@ -52,8 +52,8 @@ const saveToLS = (id, category) => {
     if (category==='Electronics') {
         const eleSavedIds = getSaved('Electronics')
         if (eleSavedIds.includes(id)) {
-            const updateEleSavedIds = eleSavedIds.filter(ids => ids !==id);
-            localStorage.setItem('Electronics', JSON.stringify(updateEleSavedIds))
+            const updatedEleSavedIds = eleSavedIds.filter(ids => ids !==id);
+            localStorage.setItem('Electronics', JSON.stringify(updatedEleSavedIds))
             return;
         }
         eleSavedIds.push(id)
@@ -62,24 +62,44 @@ const saveToLS = (id, category) => {
     }
     if (category==='Food') {
         const foodSavedIds = getSaved('Food')
+        if (foodSavedIds.includes(id)) {
+            const updatedFoodSavedIds = foodSavedIds.filter(ids => ids !==id);
+            localStorage.setItem('Food', JSON.stringify(updatedFoodSavedIds))
+            return;
+        }
         foodSavedIds.push(id)
         const foodSavedIdsStr = JSON.stringify(foodSavedIds)
         localStorage.setItem('Food',  foodSavedIdsStr)
     }
     if (category==='Fashion') {
         const fashionSavedIds = getSaved('Fashion')
+        if (fashionSavedIds.includes(id)) {
+            const updatedFashionSavedIds = fashionSavedIds.filter(ids => ids !==id);
+            localStorage.setItem('Fashion', JSON.stringify(updatedFashionSavedIds))
+            return;
+        }
         fashionSavedIds.push(id)
         const fashionSavedIdsStr = JSON.stringify(fashionSavedIds)
         localStorage.setItem('Fashion',  fashionSavedIdsStr)
     }
     if (category==='Beauty') {
         const beautySavedIds = getSaved('Beauty')
+        if (beautySavedIds.includes(id)) {
+            const updatedBeautySavedIds = beautySavedIds.filter(ids => ids !==id);
+            localStorage.setItem('Beauty', JSON.stringify(updatedBeautySavedIds))
+            return;
+        }
         beautySavedIds.push(id)
         const beautySavedIdsStr = JSON.stringify(beautySavedIds)
         localStorage.setItem('Beauty',  beautySavedIdsStr)
     }
     if (category==='Travel') {
         const travelSavedIds = getSaved('Travel')
+        if (travelSavedIds.includes(id)) {
+            const updatedTravelSavedIds = travelSavedIds.filter(ids => ids !==id);
+            localStorage.setItem('Travel', JSON.stringify(updatedTravelSavedIds))
+            return;
+        }
         travelSavedIds.push(id)
         const travelSavedIdsStr = JSON.stringify(travelSavedIds)
         localStorage.setItem('Travel',  travelSavedIdsStr)

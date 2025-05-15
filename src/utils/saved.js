@@ -1,4 +1,4 @@
-import { createContext } from "react";
+import { createContext, useState } from "react";
 
 export const SavedContext = createContext();
 
@@ -51,6 +51,11 @@ const getSaved = (category) => {
 const saveToLS = (id, category) => {
     if (category==='Electronics') {
         const eleSavedIds = getSaved('Electronics')
+        if (eleSavedIds.includes(id)) {
+            const updateEleSavedIds = eleSavedIds.filter(ids => ids !==id);
+            localStorage.setItem('Electronics', JSON.stringify(updateEleSavedIds))
+            return;
+        }
         eleSavedIds.push(id)
         const eleSavedIdsStr = JSON.stringify(eleSavedIds)
         localStorage.setItem('Electronics',  eleSavedIdsStr)

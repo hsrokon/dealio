@@ -35,43 +35,68 @@ const Saved = () => {
     return (
         <div className="min-h-screen">
                 <h1 className="my-8 w-fit mx-auto pr-2 shadow-[3px_3px_0px_#FF6B2C] shadow-primary text-4xl font-semibold text-secondary">Never miss the favorite!</h1>
-            <section>
+            <section className="min-h-10">
                 <h3 className="text-3xl font-semibold mt-12">Electronics 🔌📱💻</h3>
                 <div className="grid grid-cols-5">
                     {
                         electronicsSaved.map(c => <CouponCard key={c.id} coupon={c}></CouponCard>)
                     }
                 </div>
+                <div className="text-center">
+                    {
+                    electronicsSaved.length ===0 && <h2>No coupon saved in this category!</h2>
+                    }
+                </div>
             </section>
-            <section>
+            <section className="min-h-10">
                 <h3 className="text-3xl font-semibold mt-12">Food🍔🍕🍣</h3>
                 <div className="grid grid-cols-5">
                     {
                         foodSaved.map(c => <CouponCard key={c.id} coupon={c}></CouponCard>)
                     }
                 </div>
+                <div className="text-center">
+                    {
+                    foodSaved.length ===0 && <h2>No coupon saved in this category!</h2>
+                    }
+                </div>
             </section>
-            <section>
+            <section className="min-h-10">
                 <h3 className="text-3xl font-semibold mt-12">Fashion👗👜👟</h3>
                 <div className="grid grid-cols-5">
                     {
                         fashionSaved.map(c => <CouponCard key={c.id} coupon={c}></CouponCard>)
                     }
                 </div>
+                <div className="text-center">
+                    {
+                    fashionSaved.length ===0 && <h2>No coupon saved in this category!</h2>
+                    }
+                </div>
             </section>
-            <section>
+            <section className="min-h-10">
                 <h3 className="text-3xl font-semibold mt-12">Beauty💄🧴💅</h3>
                 <div className="grid grid-cols-5">
                     {
                         beautySaved.map(c => <CouponCard key={c.id} coupon={c}></CouponCard>)
                     }
                 </div>
+                <div className="text-center">
+                    {
+                    beautySaved.length ===0 && <h2>No coupon saved in this category!</h2>
+                    }
+                </div>
             </section>
-            <section>
+            <section className="min-h-10">
                 <h3 className="text-3xl font-semibold mt-12">Travel✈️🌍🧳</h3>
                 <div className="grid grid-cols-5">
                     {
                         travelSaved.map(c => <CouponCard key={c.id} coupon={c}></CouponCard>)
+                    }
+                </div>
+                <div className="text-center">
+                    {
+                    travelSaved.length ===0 && <h2>No coupon saved in this category!</h2>
                     }
                 </div>
             </section>

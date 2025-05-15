@@ -1,6 +1,6 @@
 // CouponCard.jsx - Enhanced and integrated CouponCard with live coupon data
-import { useContext, useRef } from "react";
-import { FaRegHeart } from "react-icons/fa";
+import { useContext, useEffect, useRef, useState } from "react";
+import { FaHeart, FaRegHeart } from "react-icons/fa";
 import {
   motion,
   useMotionTemplate,
@@ -28,13 +28,23 @@ const CouponCard = ({ coupon }) => {
     times_redeemed, valid, category,
     store, expires_on
   } = coupon;
-
   const color = categoryColors[category] || categoryColors.Default;
 
-  const {saveToLS} = useContext(SavedContext);
+  const [ update, setUpdate ] = useState(false)
+  //card saving
+  const {saveToLS, getSaved} = useContext(SavedContext);
   const handleSaved = (ids, cat) => {
     saveToLS(ids, cat)
+    setUpdate(!update)
   }
+
+  //card save onState logic
+  const [ isSaved, setIsSaved ] = useState()
+  useEffect(()=>{
+    const savedIds =  getSaved(category)
+    setIsSaved(savedIds.includes(id))
+  },[update])
+  
 
   const ref = useRef(null);
   const x = useMotionValue(0);
@@ -76,7 +86,9 @@ const CouponCard = ({ coupon }) => {
         <div>
           <h3 className="text-lg font-bold mb-1 h-14">{title}</h3>
           <div  className="flex flex-col items-center">
-            <button onClick={()=> handleSaved(id, category)} className="text-2xl"><FaRegHeart /></button>
+            <button 
+            onClick={()=> handleSaved(id, category)} 
+            className="text-2xl text-primary">{isSaved ? <FaHeart/> : <FaRegHeart />}</button>
           </div>
         </div>
         <div className="text-sm space-y-1 mt-1">

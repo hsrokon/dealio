@@ -4,6 +4,8 @@ import ErrorPage from "../pages.jsx/ErrorPage";
 import Home from "../components/main/Home";
 import Coupons from "../components/main/Coupons";
 import Saved from "../components/main/Saved";
+import Login from "../pages.jsx/Login";
+import SignUp from "../pages.jsx/SignUp";
 
 const router = createBrowserRouter([
     {
@@ -25,6 +27,14 @@ const router = createBrowserRouter([
             }
         ]
     },
+    {
+        path: '/auth/login',
+        element: <Login></Login>
+    },
+    {
+        path: '/auth/signup',
+        element: <SignUp></SignUp>
+    }
 ])
 
 export default router;

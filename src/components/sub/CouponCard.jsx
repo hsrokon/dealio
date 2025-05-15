@@ -75,7 +75,7 @@ const transform = useMotionTemplate`rotateX(${xSpring}deg) rotateY(${ySpring}deg
         </div>
         <div className="text-sm space-y-1 mt-1">
           {/* <p><strong>Code:</strong> {code}</p> */}
-          <button className="bg-primary text-white font-medium py-2 px-6 rounded transition-all hover:bg-accent hover:text-base-content active:scale-95">
+          <button className="bg-primary text-white font-medium py-2 px-6 rounded transition-all hover:bg-accent hover:text-base-content active:scale-95 w-full">
                     Get code
                   </button>
           <p><strong>{percent_off}%</strong> off • {duration} ({duration_in_months} mo)</p>

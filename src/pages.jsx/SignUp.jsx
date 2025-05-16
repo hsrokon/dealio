@@ -1,8 +1,9 @@
+import { useState } from "react";
 import useInputState from "../utils/controlledFormHook";
+import { FaEye, FaEyeSlash } from "react-icons/fa";
 
 
 const SignUp = () => {
-    // const emailState = useInputState();
     const passState = useInputState();
 
     const handleSubmit = e => {
@@ -18,6 +19,8 @@ const SignUp = () => {
             return;
         }
     }
+
+    const [ showPass, setShowPass ] = useState(false)
 
     return (
         <div className="min-h-screen flex flex-col gap-4 items-center justify-center">
@@ -42,7 +45,6 @@ const SignUp = () => {
 
                     <label className="text-sm">Email</label>
                     <input 
-                    // {...emailState}
                     type="email" 
                     required
                     name="email"
@@ -50,32 +52,46 @@ const SignUp = () => {
                     placeholder="Email" />
 
                     <label className="text-sm">Password</label>
-                    <input 
-                    {...passState}//...passState is using the JavaScript spread operator to pass multiple props from an object all at once.
-                    type="password" 
-                    name="pass"
-                    required
-                    className="input rounded-2xl text-base-content" 
-                    placeholder="Password" />
+                    <div className="relative">
+                        <input 
+                        {...passState}//...passState is using the JavaScript spread operator to pass multiple props from an object all at once.
+                        type={`${showPass ? 'text' : 'password'}`} 
+                        name="pass"
+                        required
+                        className="input rounded-2xl text-base-content" 
+                        placeholder="Password" />
+                        <button 
+                        onClick={()=> setShowPass(!showPass)}
+                        className="absolute right-12 top-1/2 -translate-y-1/2 text-base-content text-lg z-20">
+                            {
+                                showPass ? <FaEyeSlash /> : <FaEye/>
+                            }</button>
+                    </div>
+                    
                     {passState.value.length > 0 && (
-                 <div className="mt-1 flex flex-wrap gap-2 text-xs">
-                    <span className={passState.validation.hasUpper ? "text-green-200" : "text-rose-100"}>
-                        Uppercase {passState.validation.hasUpper ? "✔" : "✘"}
-                    </span>
-                    <span className={passState.validation.hasLower ? "text-green-200" : "text-rose-100"}>
-                        Lowercase {passState.validation.hasLower ? "✔" : "✘"}
-                    </span>
-                    <span className={passState.validation.hasNum ? "text-green-200" : "text-rose-100"}>
-                        Number {passState.validation.hasNum ? "✔" : "✘"}
-                    </span>
-                    <span className={passState.validation.hasSpecial ? "text-green-200" : "text-rose-100"}>
-                        Special {passState.validation.hasSpecial ? "✔" : "✘"}
-                    </span>
-                    <span className={passState.validation.hasMinLen ? "text-green-200" : "text-rose-100"}>
-                        6+ chars {passState.validation.hasMinLen ? "✔" : "✘"}
-                    </span>
-                </div>
-                )}
+                    <div className="mt-1 flex flex-wrap gap-2 text-xs">
+                        <span className={passState.validation.hasUpper ? 
+                            "text-green-200" : "text-rose-100"}>
+                            Uppercase {passState.validation.hasUpper ? "✔" : "✘"}
+                        </span>
+                        <span className={passState.validation.hasLower ? 
+                            "text-green-200" : "text-rose-100"}>
+                            Lowercase {passState.validation.hasLower ? "✔" : "✘"}
+                        </span>
+                        <span className={passState.validation.hasNum ? 
+                            "text-green-200" : "text-rose-100"}>
+                            Number {passState.validation.hasNum ? "✔" : "✘"}
+                        </span>
+                        <span className={passState.validation.hasSpecial ? 
+                            "text-green-200" : "text-rose-100"}>
+                            Special {passState.validation.hasSpecial ? "✔" : "✘"}
+                        </span>
+                        <span className={passState.validation.hasMinLen ? 
+                            "text-green-200" : "text-rose-100"}>
+                            6+ chars {passState.validation.hasMinLen ? "✔" : "✘"}
+                        </span>
+                    </div>
+                    )}
                     <div><a className="link link-hover">Forgot password?</a></div>
                     <button className="btn btn-primary text-white border-base-100 rounded-2xl mt-4">Sign Up</button>
                     </fieldset>

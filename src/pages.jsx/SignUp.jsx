@@ -1,6 +1,7 @@
 import { useState } from "react";
 import useInputState from "../utils/controlledFormHook";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 
 const SignUp = () => {
@@ -62,7 +63,7 @@ const SignUp = () => {
                         placeholder="Password" />
                         <button 
                         onClick={()=> setShowPass(!showPass)}
-                        className="absolute right-12 top-1/2 -translate-y-1/2 text-base-content text-lg z-20">
+                        className="absolute right-10 top-1/2 -translate-y-1/2 text-base-content text-lg z-20">
                             {
                                 showPass ? <FaEyeSlash /> : <FaEye/>
                             }</button>
@@ -92,9 +93,11 @@ const SignUp = () => {
                         </span>
                     </div>
                     )}
-                    <div><a className="link link-hover">Forgot password?</a></div>
                     <button className="btn btn-primary text-white border-base-100 rounded-2xl mt-4">Sign Up</button>
                     </fieldset>
+                    <p className="text-center text-sm">Already have an account? 
+                        <Link to={'/auth/login'} className="underline font-semibold">Log in</Link>
+                    </p>
                 </form>
             </div>
         </div>

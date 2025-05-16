@@ -1,10 +1,12 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import useInputState from "../utils/controlledFormHook";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../provider/AuthProvider";
 
 
 const SignUp = () => {
+    const { createNewUser } = useContext(AuthContext);
     const passState = useInputState();
 
     const handleSubmit = e => {
@@ -19,6 +21,22 @@ const SignUp = () => {
             alert('Please meet all password requirements before submitting.');
             return;
         }
+
+        const name = e.target.name.value;
+        const photoURL = e.target.photo.value;
+        const email = e.target.email.value;
+        const password = passState.value;
+
+        createNewUser(email, password)
+        .then(credential =>{
+            const user = credential.user;
+            console.log(user);
+        })
+        .catch(error => {
+            const errorMessage = error.message;
+            console.log(errorMessage);
+        })
+        
     }
 
     const [ showPass, setShowPass ] = useState(false)

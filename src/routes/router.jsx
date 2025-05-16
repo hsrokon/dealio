@@ -6,6 +6,7 @@ import Coupons from "../components/main/Coupons";
 import Saved from "../components/main/Saved";
 import Login from "../pages.jsx/Login";
 import SignUp from "../pages.jsx/SignUp";
+import Dashboard from "../components/main/Dashboard";
 
 const router = createBrowserRouter([
     {
@@ -24,6 +25,10 @@ const router = createBrowserRouter([
             {
                 path: '/saved',
                 element:<Saved></Saved>
+            },
+            {
+                path: '/dashboard',
+                element: <Dashboard></Dashboard>
             }
         ]
     },

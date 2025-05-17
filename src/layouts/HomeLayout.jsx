@@ -3,6 +3,7 @@ import Navbar from "../components/Navbar";
 import Footer from "../components/sub/Footer";
 import ScrollToTopButton from "../components/sub/ScrollToTopButton";
 import { getSaved, SavedContext, saveToLS } from "../utils/saved";
+import { ToastContainer } from "react-toastify";
 
 
 const HomeLayout = () => {
@@ -20,6 +21,7 @@ const HomeLayout = () => {
                 </footer>
                 <ScrollToTopButton></ScrollToTopButton>
             </SavedContext.Provider>
+            <ToastContainer />
         </div>
     );
 };

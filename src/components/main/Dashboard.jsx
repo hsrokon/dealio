@@ -2,6 +2,7 @@ import { useContext } from "react";
 import { AuthContext } from "../../provider/AuthProvider";
 import { Link } from "react-router-dom";
 import { auth } from "../../firebase/firebase.config";
+import { Bounce, toast } from "react-toastify";
 
 
 const Dashboard = () => {
@@ -10,15 +11,24 @@ const Dashboard = () => {
     const handleSubmit = e => {
         e.preventDefault()
 
-        const displayName = e.target.name.value;
-        const photoURL = e.target.photo.value;
+        const displayName = e.target.name.value || user.displayName;
+        const photoURL = e.target.photo.value || user.photoURL;
 
         updateUserProfile(displayName, photoURL)
-        // .then(()=> {
-        //     return auth.currentUser.reload();
-        // })
         .then(()=> {
             setUser({...auth.currentUser})
+            //toast
+            toast.success('Profile updated!', {
+                position: "top-center",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: false,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "light",
+                transition: Bounce,
+                });
         })
         .catch(error => {
             console.log('Profile update error from dashboard', error);

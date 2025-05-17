@@ -20,7 +20,7 @@ const PopularCoupons = () => {
     
     return (
         <div className="w-full max-w-7xl mx-auto">
-            <h2 className="text-2xl md:text-3xl lg:text-4xl text-primary font-semibold text-center mt-20 mb-4">Get the popular deals!</h2>
+            <h2 className="text-2xl md:text-3xl lg:text-4xl text-primary font-semibold text-center md:mt-10 lg:mt-20 mb-4">Get the popular deals!</h2>
             <Swiper
                 modules={[Autoplay]}
                 autoplay={{ delay: 2000, disableOnInteraction: false }}

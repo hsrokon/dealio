@@ -5,19 +5,19 @@ import { Link } from "react-router-dom";
 
 const ShuffleHero = () => {
   return (
-    <section className="w-full px-8 py-12 grid grid-cols-1 md:grid-cols-2 items-center gap-8 max-w-6xl mx-auto">
+    <section className="w-full px-4 lg:px-8 py-4 md:py-8 lg:py-12 grid grid-cols-1 md:grid-cols-2 items-center gap-8 max-w-6xl mx-auto">
       <div>
         <span className="block mb-4 text-xs md:text-sm text-primary font-medium">
           Better coupons day
         </span>
-        <h3 className="text-4xl md:text-6xl font-semibold">
+        <h3 className="text-2xl md:text-3xl lg:text-4xl font-semibold">
             Find the best deals for you
         </h3>
-        <p className="text-base md:text-lg text-slate-700 my-4 md:my-6">
+        <p className="text-sm md:text-base lg:text-lg text-slate-700 my-4 md:my-6">
           Discover and collect coupons to save on your favorite store
         </p>
         <Link to={'/coupons'}>
-          <button className="bg-primary text-white font-medium py-2 px-6 rounded transition-all hover:bg-accent hover:text-base-content active:scale-95
+          <button className="bg-primary text-sm lg:text-base text-white font-medium py-2 px-6 rounded transition-all hover:bg-accent hover:text-base-content active:scale-95
           flex items-center gap-2">
             Browse coupons <GoArrowUpRight/>
           </button>
@@ -145,7 +145,7 @@ const ShuffleGrid = () => {
   };
 
   return (
-    <div className="grid grid-cols-4 grid-rows-4 h-[450px] gap-1">
+    <div className="grid grid-cols-4 grid-rows-4 h-72 md:h-96 lg:h-[450px] gap-1">
       {squares.map((sq) => sq)}
     </div>
   );

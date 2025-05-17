@@ -36,7 +36,7 @@ const Navbar = () => {
             <div className="navbar bg-primary shadow-sm rounded-t-xl">
             <div className="navbar-start">
                 <div className="dropdown">
-                <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
+                <div tabIndex={0} role="button" className="btn btn-ghost pr-0 lg:hidden">
                     <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"> <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /> </svg>
                 </div>
                 <ul
@@ -45,7 +45,7 @@ const Navbar = () => {
                     {links}
                 </ul>
                 </div>
-                <Link to={'/'} className="btn bg-none border-none h-7">
+                <Link to={'/'} className="btn bg-none border-none pl-2 md:pl-4 h-5 md:h-7">
                     <img className="h-full" src={'https://i.ibb.co/RpXWtHks/logo.png'} alt="" />
                 </Link>
             </div>
@@ -60,17 +60,17 @@ const Navbar = () => {
                     <div className="flex items-center gap-2">
                         {
                             user.photoURL ? 
-                            <div className="w-10 h-10">
+                            <div className="w-7 md:w-8 lg:w-10 h-7 md:h-8 lg:h-10">
                                 <img className="w-full h-full object-cover rounded-full" src={user.photoURL}/> 
                             </div>
-                            : <FaUserCheck className="text-xl" />
+                            : <FaUserCheck className="text-lg md:text-xl" />
                         }
                         <button 
                         onClick={handleLogOut}
-                        className="btn border-none bg-accent px-4 rounded-lg py-1 mr-4">Logout</button>
+                        className="btn btn-xs md:btn-sm lg:btn-md border-none bg-accent px-2.5 text-xs md:text-base lg:px-4 rounded-sm lg:rounded-lg lg:py-1 md:mr-4">Logout</button>
                     </div> :
                     <Link to={'/auth/signup'} 
-                    className="btn border-none bg-accent px-4 rounded-lg py-1 mr-4">Sign Up</Link>
+                    className="btn btn-xs md:btn-sm lg:btn-md border-none bg-accent px-2.5 text-xs md:text-base lg:px-4 rounded-sm lg:rounded-lg lg:py-1 md:mr-4">Sign Up</Link>
                 }
             </div>
             </div>

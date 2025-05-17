@@ -5,6 +5,7 @@ import { AuthContext } from "../provider/AuthProvider";
 
 
 const Login = () => {
+    const [ errorMes, setErrorMes ] = useState({});
     const { loginUser, setUser } = useContext(AuthContext);
     const location = useLocation();
     const navigate = useNavigate();
@@ -21,52 +22,63 @@ const Login = () => {
             navigate(location?.state ? location.state : '/')
         })
         .catch(error => {
-            const errorMessage = error.message;
-            console.log(errorMessage);
+            const errorCode = error.code;
+            setErrorMes({...errorMes, login: errorCode})//adding a login property
+            console.log(errorCode);
         })
     }
 
     const [ showPass, setShowPass ] = useState(false)
 
     return (
-        <div className="min-h-screen flex flex-col gap-4 items-center justify-center">
-            <h2 className="text-2xl font-semibold">Log in</h2>
-            <div className="card bg-primary w-full max-w-sm shrink-0 rounded-2xl shadow-2xl shadow-primary text-base-100">
-                <form onSubmit={handleSubmit} className="card-body">
-                    <fieldset className="fieldset">
+        <div className="min-h-screen flex flex-col ">
 
-                    <label className="text-sm">Email</label>
-                    <input 
-                    type="email" 
-                    required
-                    name="email"
-                    className="input rounded-2xl text-base-content" 
-                    placeholder="Email" />
+            <Link to={'/'}><h2 className="pl-30 pt-10 text-xl font-bold self-start text-base-content">&#10095; Home</h2></Link>
 
-                    <label className="text-sm">Password</label>
-                    <div className="relative">
+            <div className="flex flex-1 flex-col gap-4 items-center justify-center">
+                <h2 className="text-2xl font-semibold">Log in</h2>
+                <div className="card bg-primary w-full max-w-sm shrink-0 rounded-2xl shadow-2xl shadow-primary text-base-100">
+                    <form onSubmit={handleSubmit} className="card-body">
+                        <fieldset className="fieldset">
+
+                        <label className="text-sm">Email</label>
                         <input 
-                        type={`${showPass ? 'text' : 'password'}`} 
-                        name="pass"
+                        type="email" 
                         required
+                        name="email"
                         className="input rounded-2xl text-base-content" 
-                        placeholder="Password" />
-                        <button 
-                        onClick={()=> setShowPass(!showPass)}
-                        className="absolute right-10 top-1/2 -translate-y-1/2 text-base-content text-lg z-20">
-                            {
-                                showPass ? <FaEyeSlash /> : <FaEye/>
-                            }</button>
-                    </div>
-                    
-                    <div><a className="link link-hover">Forgot password?</a></div>
-                    <button className="btn btn-primary text-white border-base-100 rounded-2xl mt-2">Log in</button>
-                    </fieldset>
-                    <p className="text-center text-sm">Don't have an account? 
-                        <Link to={'/auth/signup'} className="underline font-semibold">Sign Up</Link>
-                    </p>
-                </form>
+                        placeholder="Email" />
+
+                        <label className="text-sm">Password</label>
+                        <div className="relative">
+                            <input 
+                            type={`${showPass ? 'text' : 'password'}`} 
+                            name="pass"
+                            required
+                            className="input rounded-2xl text-base-content" 
+                            placeholder="Password" />
+                            <button 
+                            onClick={()=> setShowPass(!showPass)}
+                            className="absolute right-10 top-1/2 -translate-y-1/2 text-base-content text-lg z-20">
+                                {
+                                    showPass ? <FaEyeSlash /> : <FaEye/>
+                                }</button>
+                        </div>
+                        
+                        <div><a className="link link-hover">Forgot password?</a></div>
+                        {
+                            errorMes.login && <p className="font-semibold text-white">
+                                <span className="text-base-content">&#10095;&#10095;</span> Error: {errorMes.login}</p>
+                        }
+                        <button className="btn btn-primary text-white border-base-100 rounded-2xl mt-2">Log in</button>
+                        </fieldset>
+                        <p className="text-center text-sm">Don't have an account? 
+                            <Link to={'/auth/signup'} className="underline font-semibold">Sign Up</Link>
+                        </p>
+                    </form>
+                </div>
             </div>
+            
         </div>
     );
 };

@@ -3,6 +3,7 @@ import SpotlightButton from "./SpotlightButton";
 import { useContext } from "react";
 import { AuthContext } from "../../provider/AuthProvider";
 import { useLocation, useNavigate } from "react-router-dom";
+import CopyCouponCode from "./CopyCouponCode";
 
 const categoryColors = {
   Electronics: { bg: "bg-secondary", text: "text-base-100" },
@@ -55,7 +56,7 @@ const PopularCoupon = ({ coupon }) => {
 
         <div className="text-sm space-y-1">
           {
-            user ? code : <div onClick={handleSeeCode}><SpotlightButton></SpotlightButton></div>
+            user ? <CopyCouponCode code={code} /> : <div onClick={handleSeeCode}><SpotlightButton></SpotlightButton></div>
           }
           <p><strong>Discount:</strong> {percent_off}%</p>
           <p><strong>Redeemed:</strong> {times_redeemed} times</p>

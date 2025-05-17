@@ -10,6 +10,7 @@ import {
 import { SavedContext } from "../../utils/saved";
 import { AuthContext } from "../../provider/AuthProvider";
 import { useLocation, useNavigate } from "react-router-dom";
+import CopyCouponCode from "./CopyCouponCode";
 
 const categoryColors = {
   Electronics: { bg: "bg-secondary", text: "text-base-100" },
@@ -105,7 +106,7 @@ const CouponCard = ({ coupon }) => {
         </div>
         <div className="text-sm space-y-1 mt-1">
           {
-            user ? <p><strong>Code:</strong> {code}</p> : <button onClick={handleSeeCode} className="bg-primary text-white font-medium py-2 px-6 rounded transition-all hover:bg-accent hover:text-base-content active:scale-95 w-full translate-z-96">
+            user ? <CopyCouponCode code={code}/> : <button onClick={handleSeeCode} className="bg-primary text-white font-medium py-2 px-6 rounded transition-all hover:bg-accent hover:text-base-content active:scale-95 w-full translate-z-96">
           Get code</button>
           }
           <p><strong>{percent_off}%</strong> off • {duration} ({duration_in_months} mo)</p>

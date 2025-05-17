@@ -61,7 +61,7 @@ const Navbar = () => {
                         {
                             user.photoURL ? 
                             <div className="w-10 h-10">
-                                <img className="w-full h-full object-cover rounded-full" src={user?.photoURL}/> 
+                                <img className="w-full h-full object-cover rounded-full" src={user.photoURL}/> 
                             </div>
                             : <FaUserCheck className="text-xl" />
                         }

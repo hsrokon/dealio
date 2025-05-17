@@ -37,7 +37,7 @@ const PopularCoupon = ({ coupon }) => {
       whileHover="hover"
       transition={{ duration: 0.5, ease: "backInOut" }}
       variants={{ hover: { scale: 1.05 } }}
-      className={`relative w-72 h-96 rounded-xl p-6 shadow-lg ${color.bg} ${color.text}`}
+      className={`relative w-64 h-[21rem] mx-auto lg:w-72 lg:h-96 rounded-xl p-6 shadow-lg ${color.bg} ${color.text}`}
       style={{ overflow: "visible" }} // <-- allows scale to overflow
     >
       {/* Background animation */}
@@ -48,7 +48,7 @@ const PopularCoupon = ({ coupon }) => {
           <span className="inline-block mb-2 rounded-full bg-white/30 px-3 py-1 text-sm">
             {category}
           </span>
-          <h3 className="text-2xl font-bold mb-1">{title}</h3>
+          <h3 className="text-lg md:text-xl lg:text-2xl font-bold mb-1">{title}</h3>
           <p className="text-sm opacity-90">Store: {store}</p>
         </div>
 

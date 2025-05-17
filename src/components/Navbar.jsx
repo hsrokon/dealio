@@ -67,10 +67,10 @@ const Navbar = () => {
                         }
                         <button 
                         onClick={handleLogOut}
-                        className="btn btn-xs md:btn-sm lg:btn-md border-none bg-accent px-2.5 text-xs md:text-base lg:px-4 rounded-sm lg:rounded-lg lg:py-1 md:mr-4">Logout</button>
+                        className="btn btn-xs md:btn-sm lg:btn-md border-none bg-accent px-2.5 text-xs md:text-base lg:px-4 rounded-sm lg:rounded-lg lg:py-1 mr-1 md:mr-4">Logout</button>
                     </div> :
                     <Link to={'/auth/signup'} 
-                    className="btn btn-xs md:btn-sm lg:btn-md border-none bg-accent px-2.5 text-xs md:text-base lg:px-4 rounded-sm lg:rounded-lg lg:py-1 md:mr-4">Sign Up</Link>
+                    className="btn btn-xs md:btn-sm lg:btn-md border-none bg-accent px-2.5 text-xs md:text-base lg:px-4 rounded-sm lg:rounded-lg lg:py-1 mr-1 md:mr-4">Sign Up</Link>
                 }
             </div>
             </div>

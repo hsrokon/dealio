@@ -15,7 +15,7 @@ const BannerSlider = () => {
   ];
 
   return (
-    <div className="relative w-full h-48 xl:h-[40rem] rounded-b-xl overflow-hidden">
+    <div className="relative w-full h-48 md:h-96 lg:h-[31rem] xl:h-[40rem] rounded-b-xl overflow-hidden">
       {/* Swiper in background */}
       <Swiper
         modules={[Autoplay]}
@@ -37,9 +37,9 @@ const BannerSlider = () => {
       {/* Static content on top */}
       <div className="absolute inset-0 bg-black/50 z-10 flex items-center justify-center">
         <div className="text-center text-white space-y-4">
-          <h1 className="text-4xl font-bold">Get the Best Deals on Dealio</h1>
+          <h1 className="md:text-3xl lg:text-4xl font-bold">Get the Best Deals on Dealio</h1>
           <Link to={'/coupons'}>
-            <button className="btn border-none px-6 py-6 text-[1rem] bg-white text-primary font-semibold rounded-md shadow hover:bg-gray-100 transition">
+            <button className="btn btn-sm md:btn-md border-none md:px-6 md:py-6 text-xs md:text-sm lg:text-[1rem] bg-white text-primary font-semibold rounded-md shadow hover:bg-gray-100 transition">
               View More
             </button>
           </Link>

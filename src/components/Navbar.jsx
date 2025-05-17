@@ -63,7 +63,7 @@ const Navbar = () => {
                             <div className="w-10 h-10">
                                 <img className="w-full h-full object-cover rounded-full" src={user?.photoURL}/> 
                             </div>
-                            : <FaUserCheck />
+                            : <FaUserCheck className="text-xl" />
                         }
                         <button 
                         onClick={handleLogOut}

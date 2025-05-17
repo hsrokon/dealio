@@ -1,13 +1,14 @@
 import { useContext, useState } from "react";
 import useInputState from "../utils/controlledFormHook";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../provider/AuthProvider";
 
 
 const SignUp = () => {
-    const { createNewUser, setUser } = useContext(AuthContext);
+    const { createNewUser, updateUserProfile, setUser } = useContext(AuthContext);
     const passState = useInputState();
+    const navigate = useNavigate();
 
     const handleSubmit = e => {
         e.preventDefault();
@@ -22,7 +23,7 @@ const SignUp = () => {
             return;
         }
 
-        const name = e.target.name.value;
+        const displayName = e.target.name.value;
         const photoURL = e.target.photo.value;
         const email = e.target.email.value;
         const password = passState.value;
@@ -31,6 +32,12 @@ const SignUp = () => {
         .then(credential =>{
             const user = credential.user;
             setUser(user)
+            updateUserProfile(displayName, photoURL)
+            .then()
+            .catch(error => {
+                console.log('Profile update error', error);
+            })
+            navigate('/')
         })
         .catch(error => {
             const errorMessage = error.message;

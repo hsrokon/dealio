@@ -18,16 +18,16 @@ const Navbar = () => {
 
     const links = <>
     <NavLink 
-    className='btn px-2 border-none bg-none text-base-content text-[1rem]' 
+    className='btn btn-sm md:btn-xs lg:btn-md px-2 border-none bg-none text-base-content text-xs md:text-sm lg:text-[1rem]' 
     to={'/'}>Home</NavLink>
     <NavLink 
-    className='btn px-2 border-none bg-none text-base-content text-[1rem]' 
+    className='btn btn-sm md:btn-xs lg:btn-md px-2 border-none bg-none text-base-content text-xs md:text-sm lg:text-[1rem]' 
     to={'/coupons'}>Coupons</NavLink>
     <NavLink 
-    className='btn px-2 border-none bg-none text-base-content text-[1rem]' 
+    className='btn btn-sm md:btn-xs lg:btn-md px-2 border-none bg-none text-base-content text-xs md:text-sm lg:text-[1rem]' 
     to={'/saved'}>Saved</NavLink>
     <NavLink 
-    className='btn px-2 border-none bg-none text-base-content text-[1rem]' 
+    className='btn btn-sm md:btn-xs lg:btn-md px-2 border-none bg-none text-base-content text-xs md:text-sm lg:text-[1rem]' 
     to={'/dashboard'}>Dashboard</NavLink>
     </>
 
@@ -36,12 +36,12 @@ const Navbar = () => {
             <div className="navbar bg-primary shadow-sm rounded-t-xl">
             <div className="navbar-start">
                 <div className="dropdown">
-                <div tabIndex={0} role="button" className="btn btn-ghost pr-0 lg:hidden">
+                <div tabIndex={0} role="button" className="btn btn-ghost border-0 pr-0 lg:hidden">
                     <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"> <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /> </svg>
                 </div>
                 <ul
                     tabIndex={0}
-                    className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-fit gap-1 p-2 justify-normal shadow">
+                    className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-fit px-1 justify-normal shadow rounded-b-xl">
                     {links}
                 </ul>
                 </div>

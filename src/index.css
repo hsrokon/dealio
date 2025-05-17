@@ -26,9 +26,19 @@
   --font-poppins : "Poppins", sans-serif;
 }
 
-.active{
-  color: #f5f4f4;
-  border-bottom: 2px solid #F7F7F7;
+
+/* Default for small devices (below 640px) — optional fallback */
+.active {
+  color: #4FC3F7;
+  border-bottom: 2px solid #4FC3F7;
   padding-bottom: 4px;
   transition: color 0.3s ease, border-bottom 0.2s ease, padding-bottom 0.3s ease;
+}
+
+/* For large devices and up (lg = 1024px and above) */
+@media (min-width: 1024px) {
+  .active {
+    color: #f5f4f4;
+    border-bottom: 2px solid #F7F7F7;
+  }
 }

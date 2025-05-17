@@ -57,9 +57,14 @@ const Navbar = () => {
             <div className="navbar-end">
                 {
                     user ? 
-                    <div className="flex">
-                        
-                        <FaUserCheck />
+                    <div className="flex items-center gap-2">
+                        {
+                            user.photoURL ? 
+                            <div className="w-10 h-10">
+                                <img className="w-full h-full object-cover rounded-full" src={user?.photoURL}/> 
+                            </div>
+                            : <FaUserCheck />
+                        }
                         <button 
                         onClick={handleLogOut}
                         className="btn border-none bg-accent px-4 rounded-lg py-1 mr-4">Logout</button>

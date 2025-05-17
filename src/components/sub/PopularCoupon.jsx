@@ -1,5 +1,8 @@
 import { motion } from "framer-motion";
 import SpotlightButton from "./SpotlightButton";
+import { useContext } from "react";
+import { AuthContext } from "../../provider/AuthProvider";
+import { useLocation, useNavigate } from "react-router-dom";
 
 const categoryColors = {
   Electronics: { bg: "bg-secondary", text: "text-base-100" },
@@ -17,8 +20,16 @@ const PopularCoupon = ({ coupon }) => {
     times_redeemed, valid, category,
     store, expires_on
   } = coupon;
-
   const color = categoryColors[category] || categoryColors.Default;
+
+  const { user } = useContext(AuthContext);
+  const location = useLocation();
+  const navigate = useNavigate();
+  const handleSeeCode = () => {
+    navigate( '/auth/login', {
+      state: location.pathname,
+    })
+  }
 
   return (
     <motion.div
@@ -43,7 +54,9 @@ const PopularCoupon = ({ coupon }) => {
         <hr className="border-dashed border-white/40 my-2" />
 
         <div className="text-sm space-y-1">
-          <SpotlightButton></SpotlightButton>
+          {
+            user ? code : <div onClick={handleSeeCode}><SpotlightButton></SpotlightButton></div>
+          }
           <p><strong>Discount:</strong> {percent_off}%</p>
           <p><strong>Redeemed:</strong> {times_redeemed} times</p>
           <p><strong>Duration:</strong> {duration} ({duration_in_months} mo)</p>

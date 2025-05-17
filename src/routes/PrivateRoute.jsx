@@ -16,6 +16,8 @@ const PrivateRoute = ({children}) => {
         return children;
     }
 
+    //Navigate - Used in JSX (return) to automatically redirect
+    //useNavigate - Used in logic or event handlers (e.g., onClick)
     return (<Navigate state={location.pathname} to={'/auth/login'}></Navigate>);
 };
 

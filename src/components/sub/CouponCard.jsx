@@ -8,6 +8,8 @@ import {
   useSpring,
 } from "framer-motion";
 import { SavedContext } from "../../utils/saved";
+import { AuthContext } from "../../provider/AuthProvider";
+import { useLocation, useNavigate } from "react-router-dom";
 
 const categoryColors = {
   Electronics: { bg: "bg-secondary", text: "text-base-100" },
@@ -29,6 +31,16 @@ const CouponCard = ({ coupon }) => {
     store, expires_on
   } = coupon;
   const color = categoryColors[category] || categoryColors.Default;
+
+  //login user show
+  const { user } = useContext(AuthContext);
+  const location = useLocation();
+  const navigate = useNavigate();
+  const handleSeeCode = () => {
+    navigate( '/auth/login', {
+      state: location.pathname,
+    })
+  }
 
   const [ update, setUpdate ] = useState(false)
   //card saving
@@ -92,10 +104,10 @@ const CouponCard = ({ coupon }) => {
           </div>
         </div>
         <div className="text-sm space-y-1 mt-1">
-          {/* <p><strong>Code:</strong> {code}</p> */}
-          <button className="bg-primary text-white font-medium py-2 px-6 rounded transition-all hover:bg-accent hover:text-base-content active:scale-95 w-full">
-                    Get code
-                  </button>
+          {
+            user ? <p><strong>Code:</strong> {code}</p> : <button onClick={handleSeeCode} className="bg-primary text-white font-medium py-2 px-6 rounded transition-all hover:bg-accent hover:text-base-content active:scale-95 w-full translate-z-96">
+          Get code</button>
+          }
           <p><strong>{percent_off}%</strong> off • {duration} ({duration_in_months} mo)</p>
           <p>Redeemed: {times_redeemed}x</p>
           <p>Valid: {valid ? 'Yes' : 'No'}</p>

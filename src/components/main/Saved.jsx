@@ -30,8 +30,6 @@ const Saved = () => {
 
     },[coupons, getSaved])
 
-    
-
     return (
         <div className="min-h-screen">
                 <h1 className="my-8 w-fit mx-auto pr-2 shadow-[3px_3px_0px_#FF6B2C] shadow-primary text-4xl font-semibold text-secondary">Never miss the favorite!</h1>

@@ -1,12 +1,26 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../provider/AuthProvider";
 
 
 const Login = () => {
+    const { loginUser, setUser } = useContext(AuthContext);
 
     const handleSubmit = e => {
         e.preventDefault();
+
+        const email = e.target.email.value;
+        const password = e.target.pass.value;
+        loginUser(email, password)
+        .then(credential =>{
+            const user = credential.user;
+            setUser(user)
+        })
+        .catch(error => {
+            const errorMessage = error.message;
+            console.log(errorMessage);
+        })
     }
 
     const [ showPass, setShowPass ] = useState(false)

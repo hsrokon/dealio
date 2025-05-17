@@ -6,7 +6,7 @@ import { AuthContext } from "../provider/AuthProvider";
 
 
 const SignUp = () => {
-    const { createNewUser } = useContext(AuthContext);
+    const { createNewUser, setUser } = useContext(AuthContext);
     const passState = useInputState();
 
     const handleSubmit = e => {
@@ -30,7 +30,7 @@ const SignUp = () => {
         createNewUser(email, password)
         .then(credential =>{
             const user = credential.user;
-            console.log(user);
+            setUser(user)
         })
         .catch(error => {
             const errorMessage = error.message;

@@ -7,6 +7,7 @@ import Saved from "../components/main/Saved";
 import Login from "../pages.jsx/Login";
 import SignUp from "../pages.jsx/SignUp";
 import Dashboard from "../components/main/Dashboard";
+import PrivateRoute from "./PrivateRoute";
 
 const router = createBrowserRouter([
     {
@@ -24,11 +25,11 @@ const router = createBrowserRouter([
             },
             {
                 path: '/saved',
-                element:<Saved></Saved>
+                element:<PrivateRoute><Saved></Saved></PrivateRoute>
             },
             {
                 path: '/dashboard',
-                element: <Dashboard></Dashboard>
+                element: <PrivateRoute><Dashboard></Dashboard></PrivateRoute>
             }
         ]
     },

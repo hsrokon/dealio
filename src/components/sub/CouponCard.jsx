@@ -90,7 +90,7 @@ const CouponCard = ({ coupon }) => {
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
       style={{ transformStyle: "preserve-3d", transform }}
-      className={`relative h-64 w-52 lg:h-72 lg:w-[14.7rem] my-4 rounded-xl shadow-lg transition-all duration-300 mx-auto ${color.bg} ${color.text}`}
+      className={`relative h-[16.5rem] w-52 lg:h-[18.8rem] lg:w-[14.7rem] my-4 rounded-xl shadow-lg transition-all duration-300 mx-auto ${color.bg} ${color.text}`}
     >
       <div
         style={{ transform: "translateZ(60px)", transformStyle: "preserve-3d" }}

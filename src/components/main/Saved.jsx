@@ -32,10 +32,10 @@ const Saved = () => {
 
     return (
         <div className="min-h-screen">
-                <h1 className="my-8 w-fit mx-auto pr-2 shadow-[3px_3px_0px_#FF6B2C] shadow-primary text-4xl font-semibold text-secondary">Never miss the favorite!</h1>
+                <h1 className="my-8 w-fit mx-auto pr-2 shadow-[3px_3px_0px_#FF6B2C] shadow-primary text-xl md:text-3xl lg:text-4xl font-semibold text-secondary">Never miss the favorite!</h1>
             <section className="min-h-10">
-                <h3 className="text-3xl font-semibold mt-12">Electronics 🔌📱💻</h3>
-                <div className="grid grid-cols-5">
+                <h3 className="text-lg md:text-2xl lg:text-3xl font-semibold mt-12"><span className="text-primary">&#10095;</span> Electronics 🔌📱💻</h3>
+                <div className="grid grid-cols-1 md:grid-cols-3 xl:grid-cols-5">
                     {
                         electronicsSaved.map(c => <CouponCard key={c.id} coupon={c}></CouponCard>)
                     }
@@ -47,8 +47,8 @@ const Saved = () => {
                 </div>
             </section>
             <section className="min-h-10">
-                <h3 className="text-3xl font-semibold mt-12">Food🍔🍕🍣</h3>
-                <div className="grid grid-cols-5">
+                <h3 className="text-lg md:text-2xl lg:text-3xl font-semibold mt-12"><span className="text-primary">&#10095;</span> Food🍔🍕🍣</h3>
+                <div className="grid grid-cols-1 md:grid-cols-3 xl:grid-cols-5">
                     {
                         foodSaved.map(c => <CouponCard key={c.id} coupon={c}></CouponCard>)
                     }
@@ -60,8 +60,8 @@ const Saved = () => {
                 </div>
             </section>
             <section className="min-h-10">
-                <h3 className="text-3xl font-semibold mt-12">Fashion👗👜👟</h3>
-                <div className="grid grid-cols-5">
+                <h3 className="text-lg md:text-2xl lg:text-3xl font-semibold mt-12"><span className="text-primary">&#10095;</span> Fashion👗👜👟</h3>
+                <div className="grid grid-cols-1 md:grid-cols-3 xl:grid-cols-5">
                     {
                         fashionSaved.map(c => <CouponCard key={c.id} coupon={c}></CouponCard>)
                     }
@@ -73,8 +73,8 @@ const Saved = () => {
                 </div>
             </section>
             <section className="min-h-10">
-                <h3 className="text-3xl font-semibold mt-12">Beauty💄🧴💅</h3>
-                <div className="grid grid-cols-5">
+                <h3 className="text-lg md:text-2xl lg:text-3xl font-semibold mt-12"><span className="text-primary">&#10095;</span> Beauty💄🧴💅</h3>
+                <div className="grid grid-cols-1 md:grid-cols-3 xl:grid-cols-5">
                     {
                         beautySaved.map(c => <CouponCard key={c.id} coupon={c}></CouponCard>)
                     }
@@ -86,8 +86,8 @@ const Saved = () => {
                 </div>
             </section>
             <section className="min-h-10">
-                <h3 className="text-3xl font-semibold mt-12">Travel✈️🌍🧳</h3>
-                <div className="grid grid-cols-5">
+                <h3 className="text-lg md:text-2xl lg:text-3xl font-semibold mt-12"><span className="text-primary">&#10095;</span> Travel✈️🌍🧳</h3>
+                <div className="grid grid-cols-1 md:grid-cols-3 xl:grid-cols-5">
                     {
                         travelSaved.map(c => <CouponCard key={c.id} coupon={c}></CouponCard>)
                     }

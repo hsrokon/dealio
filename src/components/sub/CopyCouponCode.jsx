@@ -15,7 +15,7 @@ const CopyCouponCode = ({ code }) => {
 
   return (
     <div className="relative w-full group translate-z-96">
-      <div className="flex items-center justify-between bg-white border border-primary text-primary px-4 py-2 rounded-lg font-mono font-semibold">
+      <div className="flex items-center justify-between bg-white border border-primary text-primary px-4 py-1 lg:py-2 rounded-lg font-mono font-semibold">
         <span>{code}</span>
 
         <motion.button

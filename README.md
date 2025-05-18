@@ -6,7 +6,7 @@ Dealio is a responsive and dynamic coupon-collection web app where users can bro
 
 ## 📈 Live Demo
 
-**Live Site:** [https://deali0.web.app/](https://your-custom-domain.com) <!-- Replace with your real URL after Firebase deployment -->
+**Live Site:** [https://deali0.web.app/](https://deali0.web.app/) <!-- Replace with your real URL after Firebase deployment -->
 
 ---
 

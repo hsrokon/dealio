@@ -46,15 +46,15 @@ const Login = () => {
     const [ showPass, setShowPass ] = useState(false)
 
     return (
-        <div className="min-h-screen flex flex-col ">
+        <div className="min-h-screen flex flex-col">
 
             <Link to={'/'}><h2 className="pl-30 pt-10 text-xl font-bold self-start text-base-content">&#10095; Home</h2></Link>
 
-            <div className="flex flex-1 flex-col gap-4 items-center justify-center">
+            <div className="flex flex-1 flex-col gap-2 md:gap-4 items-center justify-center">
                 <h2 className="text-2xl font-semibold">Log in</h2>
-                <div className="card bg-primary w-full max-w-sm shrink-0 rounded-2xl shadow-2xl shadow-primary text-base-100">
+                <div className="card bg-primary w-[19rem] md:w-full max-w-sm shrink-0 rounded-2xl shadow-2xl shadow-primary text-base-100">
                     <form onSubmit={handleSubmit} className="card-body">
-                        <fieldset className="fieldset">
+                        <fieldset className="fieldset gap-0.5 md:gap-1.5">
 
                         <label className="text-sm">Email</label>
                         <input 
@@ -74,7 +74,7 @@ const Login = () => {
                             placeholder="Password" />
                             <button 
                             onClick={()=> setShowPass(!showPass)}
-                            className="absolute right-10 top-1/2 -translate-y-1/2 text-base-content text-lg z-20">
+                            className="absolute right-4 md:right-10 top-1/2 -translate-y-1/2 text-base-content text-lg z-20">
                                 {
                                     showPass ? <FaEyeSlash /> : <FaEye/>
                                 }</button>
@@ -88,7 +88,7 @@ const Login = () => {
                         <button className="btn btn-primary text-white border-base-100 rounded-2xl mt-2">Log in</button>
                         </fieldset>
 
-                        <div className="divider my-0">OR</div>
+                        <div className="divider -my-1 md:my-0 text-xs md:text-sm">OR</div>
 
                         <button 
                         onClick={handleGoogleLogIn}

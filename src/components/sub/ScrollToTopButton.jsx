@@ -24,7 +24,7 @@ const ScrollToTopButton = () => {
       initial={{ opacity: 0 }}
       animate={{ opacity: isVisible ? 1 : 0 }}
       transition={{ duration: 0.4 }}
-      className="fixed bottom-6 right-6 z-50 rounded-full bg-primary text-white p-3 shadow-lg 
+      className="fixed bottom-6 right-8 lg:right-6 z-50 rounded-full bg-primary text-white p-3 shadow-lg 
                  hover:shadow-[0_0_20px_rgba(255,107,44,0.7)] transition-shadow duration-300
                  group"
       title="Back to top" // ✅ Tooltip
@@ -38,7 +38,7 @@ const ScrollToTopButton = () => {
           duration: 1.5,
         }}
       >
-        <ArrowUp className="w-7 h-7 group-hover:scale-110 transition-transform" />
+        <ArrowUp className="w-4 h-4 lg:w-7 lg:h-7 group-hover:scale-110 transition-transform" />
       </motion.div>
     </motion.button>
   );

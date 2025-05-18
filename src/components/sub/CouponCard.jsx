@@ -90,23 +90,23 @@ const CouponCard = ({ coupon }) => {
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
       style={{ transformStyle: "preserve-3d", transform }}
-      className={`relative h-72 w-60 m-4 rounded-xl shadow-lg transition-all duration-300 ${color.bg} ${color.text}`}
+      className={`relative h-64 w-52 lg:h-72 lg:w-[14.7rem] my-4 rounded-xl shadow-lg transition-all duration-300 mx-auto ${color.bg} ${color.text}`}
     >
       <div
         style={{ transform: "translateZ(60px)", transformStyle: "preserve-3d" }}
         className="absolute inset-4 flex flex-col justify-between p-4 rounded-xl bg-white text-black shadow-inner"
       >
         <div>
-          <h3 className="text-lg font-bold mb-1 h-14">{title}</h3>
+          <h3 className="text-base lg:text-lg font-bold mb-1 lg:h-14">{title}</h3>
           <div  className="flex flex-col items-center">
             <button 
             onClick={()=> handleSaved(id, category)} 
-            className="text-2xl text-primary">{isSaved ? <FaHeart/> : <FaRegHeart />}</button>
+            className="text-xl lg:text-2xl text-primary">{isSaved ? <FaHeart/> : <FaRegHeart />}</button>
           </div>
         </div>
-        <div className="text-sm space-y-1 mt-1">
+        <div className="text-sm lg:space-y-1 mt-1">
           {
-            user ? <CopyCouponCode code={code}/> : <button onClick={handleSeeCode} className="bg-primary text-white font-medium py-2 px-6 rounded transition-all hover:bg-accent hover:text-base-content active:scale-95 w-full translate-z-96">
+            user ? <CopyCouponCode code={code}/> : <button onClick={handleSeeCode} className="bg-primary text-white font-medium py-1 lg:py-2 px-6 rounded transition-all hover:bg-accent hover:text-base-content active:scale-95 w-full translate-z-96">
           Get code</button>
           }
           <p><strong>{percent_off}%</strong> off • {duration} ({duration_in_months} mo)</p>
